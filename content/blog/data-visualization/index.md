@@ -3,26 +3,11 @@ title: 📈 Communicate your results effectively with the best data visualizatio
 summary: Use popular tools such as HuggingFace, Plotly, Mermaid, and data frames.
 date: 2023-10-25
 authors:
-  - me
+  - admin
 tags:
   - Hugo
   - Hugo Blox
   - Markdown
-cover:
-  image: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2560"
-  position:
-    x: 50
-    y: 40
-  overlay:
-    enabled: true
-    type: "gradient"
-    opacity: 0.4
-    gradient: "bottom"
-  fade:
-    enabled: true
-    height: "80px"
-  icon:
-    name: "✨"
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 ---
