@@ -6,6 +6,10 @@ tags: ["machine-learning", "optimization", "mathematics", "svm"]
 categories: ["Mathematics", "Machine Learning"]
 math: true
 description: "A deep dive into the elegant mathematics connecting Lagrangian multipliers, Karush-Kuhn-Tucker conditions, and Support Vector Machines."
+image:
+  filename: featured.svg
+  focal_point: Smart
+  preview_only: false
 ---
 
 There's a beautiful thread of mathematical reasoning that connects some of the most important ideas in optimization theory. If you've ever studied Support Vector Machines and wondered where the Lagrangian dual formulation comes from, or why something called "complementary slackness" keeps appearing, this post will build your intuition from the ground up.
