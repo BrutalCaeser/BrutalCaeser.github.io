@@ -7,7 +7,7 @@ categories: ["Mathematics", "Machine Learning"]
 math: true
 description: "A deep dive into the elegant mathematics connecting Lagrangian multipliers, Karush-Kuhn-Tucker conditions, and Support Vector Machines."
 image:
-  filename: featured.svg
+  filename: featured.png
   focal_point: Smart
   preview_only: false
 ---
