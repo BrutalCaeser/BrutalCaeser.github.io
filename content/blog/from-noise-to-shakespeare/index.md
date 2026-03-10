@@ -7,7 +7,7 @@ categories: ["Deep Learning", "NLP"]
 math: true
 description: "I built a discrete diffusion language model from scratch to understand every line of math and code. Here's everything I learned — from probability basics to the ELBO collapse to a working model that generates Shakespeare in parallel."
 image:
-  filename: 04_generation_process.svg
+  filename: featured.png
   focal_point: Smart
   preview_only: false
 ---
