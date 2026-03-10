@@ -19,12 +19,17 @@ MiniGenie is a **flow matching video world model** that predicts the next frame 
 
 **Built entirely from scratch.** No pretrained models, no diffusion libraries, no external frameworks beyond PyTorch. Every component — VQ-VAE tokenizer, flow matching U-Net, training loops, evaluation pipeline — is implemented from first principles.
 
-| | |
-|:---:|:---:|
-| ![MiniGenie rollout — CoinRun level 1](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_00.gif) | ![MiniGenie rollout — CoinRun level 2](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_01.gif) |
-| *CoinRun Level 1* | *CoinRun Level 2* |
-
-*Autoregressive rollouts generated entirely by MiniGenie — given 4 real context frames and a sequence of actions, the model imagines what happens next.*
+<div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_00.gif" alt="MiniGenie rollout — CoinRun level 1" style="width: 256px; height: 256px; image-rendering: pixelated; border-radius: 8px;">
+    <p><em>CoinRun Level 1</em></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_01.gif" alt="MiniGenie rollout — CoinRun level 2" style="width: 256px; height: 256px; image-rendering: pixelated; border-radius: 8px;">
+    <p><em>CoinRun Level 2</em></p>
+  </div>
+</div>
+<p style="text-align: center;"><em>Autoregressive rollouts generated entirely by MiniGenie — given 4 real context frames and a sequence of actions, the model imagines what happens next.</em></p>
 
 <!--more-->
 
