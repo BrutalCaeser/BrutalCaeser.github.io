@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'SF Mono', monospace">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111116"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="440" fill="url(#bg5)" rx="12"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#888" font-size="11" letter-spacing="3" font-weight="600">THE 5 SURGICAL CHANGES: GPT → DIFFUSION</text>
+
+  <!-- Header -->
+  <rect x="30" y="44" width="840" height="30" fill="#161620" rx="6"/>
+  <text x="50" y="64" fill="#f87171" font-size="11">− gpt.py</text>
+  <text x="450" y="64" fill="#4ade80" font-size="11">+ diffusion.py</text>
+  <text x="770" y="64" fill="#555" font-size="10">~80% shared</text>
+
+  <!-- Change 1: Vocabulary -->
+  <rect x="30" y="82" width="840" height="48" fill="#1a1a24" rx="4"/>
+  <rect x="30" y="82" width="4" height="48" fill="#f59e0b" rx="2"/>
+  <text x="50" y="100" fill="#f59e0b" font-size="10" font-weight="600">1  VOCABULARY</text>
+  <text x="50" y="118" fill="#f87171" font-size="11">  vocab = chars                        </text>
+  <text x="470" y="118" fill="#4ade80" font-size="11">  vocab = chars + [MASK]</text>
+
+  <!-- Change 2: Attention -->
+  <rect x="30" y="138" width="840" height="48" fill="#1a1a24" rx="4"/>
+  <rect x="30" y="138" width="4" height="48" fill="#f59e0b" rx="2"/>
+  <text x="50" y="156" fill="#f59e0b" font-size="10" font-weight="600">2  ATTENTION</text>
+  <text x="50" y="174" fill="#f87171" font-size="11">  attention(q, k, v, is_causal=True)   </text>
+  <text x="470" y="174" fill="#4ade80" font-size="11">  attention(q, k, v, is_causal=False)</text>
+
+  <!-- Change 3: Training objective -->
+  <rect x="30" y="194" width="840" height="62" fill="#1a1a24" rx="4"/>
+  <rect x="30" y="194" width="4" height="62" fill="#f59e0b" rx="2"/>
+  <text x="50" y="212" fill="#f59e0b" font-size="10" font-weight="600">3  TRAINING OBJECTIVE</text>
+  <text x="50" y="230" fill="#f87171" font-size="11">  target = x[1:]  # next token        </text>
+  <text x="470" y="230" fill="#4ade80" font-size="11">  target = x_clean  # original token</text>
+  <text x="50" y="246" fill="#f87171" font-size="11">  input  = x[:-1] # all context        </text>
+  <text x="470" y="246" fill="#4ade80" font-size="11">  input  = mask(x, t)  # noised</text>
+
+  <!-- Change 4: Loss scope -->
+  <rect x="30" y="264" width="840" height="48" fill="#1a1a24" rx="4"/>
+  <rect x="30" y="264" width="4" height="48" fill="#f59e0b" rx="2"/>
+  <text x="50" y="282" fill="#f59e0b" font-size="10" font-weight="600">4  LOSS SCOPE</text>
+  <text x="50" y="300" fill="#f87171" font-size="11">  loss = CE(logits, targets)            </text>
+  <text x="470" y="300" fill="#4ade80" font-size="11">  loss = CE(logits[masked], targets[masked])</text>
+
+  <!-- Change 5: Generation -->
+  <rect x="30" y="320" width="840" height="62" fill="#1a1a24" rx="4"/>
+  <rect x="30" y="320" width="4" height="62" fill="#f59e0b" rx="2"/>
+  <text x="50" y="338" fill="#f59e0b" font-size="10" font-weight="600">5  GENERATION</text>
+  <text x="50" y="356" fill="#f87171" font-size="11">  for i in range(length):               </text>
+  <text x="470" y="356" fill="#4ade80" font-size="11">  while masked.any():</text>
+  <text x="50" y="372" fill="#f87171" font-size="11">    next = sample(logits[:, -1])         </text>
+  <text x="470" y="372" fill="#4ade80" font-size="11">    unmask(top_k_confident(logits))</text>
+
+  <!-- Bottom -->
+  <rect x="30" y="395" width="840" height="32" fill="#10b981" fill-opacity="0.05" rx="6"/>
+  <text x="450" y="416" text-anchor="middle" fill="#10b981" font-size="11">Everything else — embeddings, RoPE, MLP, RMSNorm, residuals, optimizer — is identical</text>
+</svg>

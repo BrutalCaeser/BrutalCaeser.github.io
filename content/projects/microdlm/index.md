@@ -16,7 +16,19 @@ links:
     icon_pack: fab
     name: Source Code
     url: https://github.com/BrutalCaeser/microDLM
+  - icon: globe
+    icon_pack: fas
+    name: Interactive Demo
+    url: https://brutalcaeser.github.io/microDLM/
+  - icon: blog
+    icon_pack: fas
+    name: Blog Post
+    url: /blog/from-noise-to-shakespeare/
 ---
+
+> 🎮 **[Try the interactive demo →](https://brutalcaeser.github.io/microDLM/)** — watch diffusion race GPT live in your browser.
+>
+> 📝 **[Read the full blog post →](/blog/from-noise-to-shakespeare/)** — every line of math, from the ELBO to the training code.
 
 Most language models generate text **left-to-right**, one token at a time (GPT, LLaMA, Claude, etc.). **Discrete diffusion models** take a fundamentally different approach — they generate text **all at once**, starting from a fully masked sequence and iteratively revealing tokens in parallel, like developing a photograph.
 

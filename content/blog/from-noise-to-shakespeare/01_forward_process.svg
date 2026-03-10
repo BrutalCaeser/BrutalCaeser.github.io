@@ -1,0 +1,45 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'SF Mono', monospace">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111116"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="320" fill="url(#bg1)" rx="12"/>
+
+  <text x="450" y="32" text-anchor="middle" fill="#888" font-size="11" letter-spacing="3" font-weight="600">THE FORWARD PROCESS</text>
+
+  <!-- t=0.0 -->
+  <text x="32" y="75" fill="#555" font-size="11">t = 0.0</text>
+  <text x="32" y="91" fill="#333" font-size="9">α = 1.00</text>
+  <text x="130" y="82" fill="#e8e8e8" font-size="15" letter-spacing="2">F i r s t   C i t i z e n :</text>
+
+  <!-- t=0.2 -->
+  <text x="32" y="125" fill="#555" font-size="11">t = 0.2</text>
+  <text x="32" y="141" fill="#333" font-size="9">α = 0.95</text>
+  <text x="130" y="132" fill="#e8e8e8" font-size="15" letter-spacing="2">F i r s t   C <tspan fill="#f59e0b">_</tspan> t i z e <tspan fill="#f59e0b">_</tspan> :</text>
+
+  <!-- t=0.5 -->
+  <text x="32" y="175" fill="#555" font-size="11">t = 0.5</text>
+  <text x="32" y="191" fill="#333" font-size="9">α = 0.71</text>
+  <text x="130" y="182" fill="#e8e8e8" font-size="15" letter-spacing="2">F <tspan fill="#f59e0b">_</tspan> r s <tspan fill="#f59e0b">_</tspan>   <tspan fill="#f59e0b">_ _</tspan> t <tspan fill="#f59e0b">_</tspan> z <tspan fill="#f59e0b">_</tspan> n :</text>
+
+  <!-- t=0.8 -->
+  <text x="32" y="225" fill="#555" font-size="11">t = 0.8</text>
+  <text x="32" y="241" fill="#333" font-size="9">α = 0.31</text>
+  <text x="130" y="232" fill="#e8e8e8" font-size="15" letter-spacing="2"><tspan fill="#f59e0b">_ _ _ _</tspan> t   <tspan fill="#f59e0b">_ _ _ _ _</tspan> e <tspan fill="#f59e0b">_</tspan> :</text>
+
+  <!-- t=1.0 -->
+  <text x="32" y="275" fill="#555" font-size="11">t = 1.0</text>
+  <text x="32" y="291" fill="#333" font-size="9">α = 0.00</text>
+  <text x="130" y="282" fill="#f59e0b" font-size="15" letter-spacing="2">_ _ _ _ _ _ _ _ _ _ _ _ _ _</text>
+
+  <!-- Arrow -->
+  <line x1="870" y1="68" x2="870" y2="278" stroke="#333" stroke-width="1.5"/>
+  <polygon points="870,285 865,275 875,275" fill="#333"/>
+  <text x="860" y="64" text-anchor="end" fill="#444" font-size="9">clean</text>
+  <text x="860" y="298" text-anchor="end" fill="#444" font-size="9">noise</text>
+
+  <!-- Labels -->
+  <text x="130" y="310" fill="#333" font-size="9">Each token independently: survive with probability α(t), or become MASK with probability 1 − α(t)</text>
+</svg>

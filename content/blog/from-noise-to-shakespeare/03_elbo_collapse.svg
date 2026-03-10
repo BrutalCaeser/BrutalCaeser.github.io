@@ -1,0 +1,75 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'SF Mono', monospace">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111116"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="580" fill="url(#bg3)" rx="12"/>
+
+  <text x="450" y="32" text-anchor="middle" fill="#888" font-size="11" letter-spacing="3" font-weight="600">THE GREAT COLLAPSE: FROM ELBO TO CROSS-ENTROPY</text>
+
+  <!-- Box 1: Goal -->
+  <rect x="250" y="50" width="400" height="48" fill="none" stroke="#3b82f6" stroke-width="1.5" rx="8"/>
+  <text x="450" y="72" text-anchor="middle" fill="#e8e8e8" font-size="12">Maximize  p_θ(x)  — model assigns high prob to real text</text>
+  <text x="450" y="86" text-anchor="middle" fill="#3b82f6" font-size="9">THE GOAL</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="98" x2="450" y2="118" stroke="#444" stroke-width="1"/>
+  <text x="460" y="112" fill="#555" font-size="8">intractable, need bound</text>
+
+  <!-- Box 2: ELBO -->
+  <rect x="200" y="120" width="500" height="48" fill="none" stroke="#8b5cf6" stroke-width="1.5" rx="8"/>
+  <text x="450" y="142" text-anchor="middle" fill="#e8e8e8" font-size="12">log p_θ(x) ≥ ELBO = E_q[ log p_θ(x,z) / q(z|x) ]</text>
+  <text x="450" y="156" text-anchor="middle" fill="#8b5cf6" font-size="9">EVIDENCE LOWER BOUND (KL ≥ 0 gives the inequality)</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="168" x2="450" y2="188" stroke="#444" stroke-width="1"/>
+  <text x="460" y="182" fill="#555" font-size="8">expand into timesteps</text>
+
+  <!-- Box 3: Per-step KL -->
+  <rect x="170" y="190" width="560" height="48" fill="none" stroke="#ec4899" stroke-width="1.5" rx="8"/>
+  <text x="450" y="212" text-anchor="middle" fill="#e8e8e8" font-size="12">NELBO = L_T + Σ_t KL( q(z_{t-1}|z_t,x) ‖ p_θ(z_{t-1}|z_t) ) + L₀</text>
+  <text x="450" y="226" text-anchor="middle" fill="#ec4899" font-size="9">PER-STEP KL DIVERGENCES</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="238" x2="450" y2="258" stroke="#444" stroke-width="1"/>
+  <text x="460" y="252" fill="#555" font-size="8">absorbing state: L_T = 0, visible positions = 0</text>
+
+  <!-- Box 4: Masked CE -->
+  <rect x="160" y="260" width="580" height="64" fill="none" stroke="#f59e0b" stroke-width="1.5" rx="8"/>
+  <text x="450" y="282" text-anchor="middle" fill="#e8e8e8" font-size="12">NELBO = Σ_t Σ_i 𝟙[z_t^i = MASK] · r(t) · ( −log p_θ(x^i | z_t) )</text>
+  <text x="450" y="300" text-anchor="middle" fill="#f59e0b" font-size="9">CROSS-ENTROPY AT MASKED POSITIONS (r(t) cancels inside KL)</text>
+  <text x="450" y="314" text-anchor="middle" fill="#555" font-size="9">visible positions: KL = 0 | masked positions: KL = −log p_θ(correct token)</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="324" x2="450" y2="344" stroke="#444" stroke-width="1"/>
+  <text x="460" y="338" fill="#555" font-size="8">T → ∞, cosine weight ≈ uniform</text>
+
+  <!-- Box 5: Integral -->
+  <rect x="150" y="346" width="600" height="48" fill="none" stroke="#10b981" stroke-width="1.5" rx="8"/>
+  <text x="450" y="368" text-anchor="middle" fill="#e8e8e8" font-size="12">NELBO = ∫₀¹ w(t) · E[ Σ_i 𝟙[MASK] · (−log p_θ) ] dt</text>
+  <text x="450" y="382" text-anchor="middle" fill="#10b981" font-size="9">CONTINUOUS-TIME INTEGRAL (w(t) ≈ 1 for cosine schedule)</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="394" x2="450" y2="414" stroke="#444" stroke-width="1"/>
+  <text x="460" y="408" fill="#555" font-size="8">Monte Carlo: sample one random t per step</text>
+
+  <!-- Box 6: Code -->
+  <rect x="130" y="416" width="640" height="72" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="2" rx="8"/>
+  <text x="450" y="438" text-anchor="middle" fill="#10b981" font-size="13" font-weight="600">loss = F.cross_entropy(logits[masked], targets[masked])</text>
+  <text x="450" y="458" text-anchor="middle" fill="#10b981" font-size="10">where t ~ Uniform(0,1) and masking rate = 1 − α(t)</text>
+  <text x="450" y="476" text-anchor="middle" fill="#666" font-size="9">THIS IS THE ENTIRE TRAINING LOOP</text>
+
+  <!-- Bottom note -->
+  <text x="450" y="520" text-anchor="middle" fill="#444" font-size="10">Every arrow is a tight mathematical step. No heuristics.</text>
+  <text x="450" y="540" text-anchor="middle" fill="#444" font-size="10">The simple recipe is the principled recipe.</text>
+
+  <!-- Side labels -->
+  <text x="30" y="82" fill="#3b82f6" font-size="9" opacity="0.6">what we want</text>
+  <text x="30" y="148" fill="#8b5cf6" font-size="9" opacity="0.6">computable bound</text>
+  <text x="30" y="218" fill="#ec4899" font-size="9" opacity="0.6">decompose</text>
+  <text x="30" y="290" fill="#f59e0b" font-size="9" opacity="0.6">collapse</text>
+  <text x="30" y="372" fill="#10b981" font-size="9" opacity="0.6">continuous time</text>
+  <text x="30" y="452" fill="#10b981" font-size="9" opacity="0.6">what we code</text>
+</svg>
