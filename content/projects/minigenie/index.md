@@ -21,7 +21,7 @@ MiniGenie is a **flow matching video world model** that predicts the next frame 
 
 | | |
 |:---:|:---:|
-| ![MiniGenie rollout — CoinRun level 1](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_00.gif) | ![MiniGenie rollout — CoinRun level 2](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_02.gif) |
+| ![MiniGenie rollout — CoinRun level 1](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_00.gif) | ![MiniGenie rollout — CoinRun level 2](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_01.gif) |
 | *CoinRun Level 1* | *CoinRun Level 2* |
 
 *Autoregressive rollouts generated entirely by MiniGenie — given 4 real context frames and a sequence of actions, the model imagines what happens next.*
