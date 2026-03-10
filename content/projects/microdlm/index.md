@@ -19,6 +19,9 @@ Most language models generate text **left-to-right**, one token at a time (GPT, 
 
 This project builds **both architectures from scratch** with an **identical transformer** (same params, same data, same RoPE + RMSNorm + ReluSquared MLP) so you can see exactly what changes — and it turns out to be surprisingly little.
 
+![Diffusion vs GPT generation race — diffusion finishes ~6× faster](https://raw.githubusercontent.com/BrutalCaeser/microDLM/main/assets/race.gif)
+*Same architecture, same data — diffusion finishes in **39 steps** vs GPT's **225 steps***
+
 <!--more-->
 
 ## The 5 Changes from GPT → Diffusion

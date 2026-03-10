@@ -19,6 +19,13 @@ MiniGenie is a **flow matching video world model** that predicts the next frame 
 
 **Built entirely from scratch.** No pretrained models, no diffusion libraries, no external frameworks beyond PyTorch. Every component — VQ-VAE tokenizer, flow matching U-Net, training loops, evaluation pipeline — is implemented from first principles.
 
+| | |
+|:---:|:---:|
+| ![MiniGenie rollout — CoinRun level 1](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_00.gif) | ![MiniGenie rollout — CoinRun level 2](https://raw.githubusercontent.com/BrutalCaeser/minigenie/main/assets/rollout_02.gif) |
+| *CoinRun Level 1* | *CoinRun Level 2* |
+
+*Autoregressive rollouts generated entirely by MiniGenie — given 4 real context frames and a sequence of actions, the model imagines what happens next.*
+
 <!--more-->
 
 ## 🎮 Game: CoinRun
