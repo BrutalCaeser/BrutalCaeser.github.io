@@ -8,6 +8,9 @@ tags:
   - Transformers
   - PyTorch
 date: 2026-03-10
+image:
+  filename: race.gif
+  focal_point: Smart
 links:
   - icon: github
     icon_pack: fab

@@ -23,28 +23,26 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Read || Knead || Lead
+role: AI Researcher & Engineer
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: 
-    url: 
+  - name: Northeastern University
+    url: https://www.northeastern.edu/
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: gupta.yashv@northeastern.edu
+    url: mailto:gupta.yashv@northeastern.edu
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/BrutalCaeser
   - icon: brands/github
     url: https://github.com/BrutalCaeser
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/yashvardhangupta37/
-  - icon: academicons/google-scholar
+  - icon: brands/google-scholar
     url: https://scholar.google.com/citations?user=yashvardhangupta
-  - icon: academicons/orcid
-    url: 
+  - icon: brands/x
+    url: https://x.com/BrutalCaeser
 
 interests:
   - Diffusion Models
@@ -62,9 +60,11 @@ education:
     summary: |
       GPA: 4.0/4.0
       
-        Current : Foundations of AI, Algorithms
+        Completed: Foundations of AI, Algorithms
       
-        Future : Machine Learning, Deep Learning, Human Computer Interaction, Pattern Recognition
+        Current: Reinforcement Learning (TA), Machine Learning
+      
+        Upcoming: Deep Learning, Human Computer Interaction, Pattern Recognition
       
   - area: B.Tech Mechanical Engineering
     institution: Delhi Technological University
@@ -92,7 +92,7 @@ work:
 
   - position: Digital Solutions & Technology Engineer
     company_name: Biowolk Healthcare
-    company_url: 'https://ai.meta.com/'
+    company_url: ''
     icon: ''
     date_start: 2023-04-01
     date_end: 2025-03-31
@@ -104,7 +104,7 @@ work:
 
   - position: Machine Vision Intern
     company_name: Wipro || PARI
-    company_url: 'https://openai.com/'
+    company_url: 'https://www.wipro.com/'
     icon: ''
     date_start: 2022-07-01
     date_end: 2022-09-30
@@ -114,8 +114,8 @@ work:
         
         Conducted R&D to create scalable machine learning solutions with measurable business impact.
   - position: Machine Learning Research Intern
-    company_name: Tvishtryon 
-    company_url: 'https://www.iitd.ac.in/'
+    company_name: Tvishtryon
+    company_url: ''
     icon: ''
     date_start: 2021-12-01
     date_end: 2022-05-31
@@ -192,8 +192,10 @@ languages:
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards: []
 ---
-As a dedicated AI enthusiast grounded in mathematics and innovation, I thrive on turning complex problems into elegant, automated solutions. Inspired by Jensen Huang’s vision that “everything that moves will be automated,” I am passionate about designing intelligent systems that interact seamlessly with the physical world—from sensor-driven robotics to real-time inference at the edge.
+I build things from scratch to understand how they work — then push them further.
 
-My expertise spans end-to-end model development: model research, algorithm design, and deployment in dynamic, real-world environments. I am currently researching Vision-Language-Action (VLA) models, aiming to build generalist robot policies for dexterous unseen tasks, as well as Generative Diffusion Models.
+Right now I'm at **Northeastern University** pursuing an MS in Artificial Intelligence (4.0 GPA), where I also TA for Reinforcement Learning. My recent projects include a [discrete diffusion language model](/projects/microdlm/) that generates text in parallel, a [video world model](/projects/minigenie/) that imagines game frames from actions, an [autonomous job application agent](/projects/job-hunter/) that runs 24/7, and a [personal AI agent](/projects/jarvis/) with a 4-tier safety system.
 
-Beyond the lab, I sharpen my strategic thinking through chess, fuel my curiosity with a diverse reading list, and stay energized on the tennis court. I am always eager for the next challenge and collaborative opportunity to drive impactful, forward-looking technology.
+Previously, I spent two years as a full-stack AI engineer at Biowolk Healthcare, shipping Python microservices and ML pipelines. My research has been published in IEEE, and I've interned at Wipro/PARI (stereo vision for robotics) and Tvishtryon (deepfake-powered educational tools).
+
+I care about **diffusion models**, **physical AI**, **reinforcement learning**, and building systems that are honest about what they can and can't do.

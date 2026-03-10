@@ -8,6 +8,9 @@ tags:
   - World Models
   - PyTorch
 date: 2026-03-07
+image:
+  filename: rollout_00.gif
+  focal_point: Smart
 links:
   - icon: github
     icon_pack: fab

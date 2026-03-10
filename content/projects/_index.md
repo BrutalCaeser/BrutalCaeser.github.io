@@ -11,16 +11,19 @@ design:
 sections:
   - block: collection
     content:
-      title: Selected Projects
-      text: I enjoy making things. Here are a selection of projects that I have worked on over the years.
+      title: Projects
+      text: |
+        Everything here is built from scratch — no wrappers, no pretrained shortcuts. Each project is a deep dive into understanding how something works by building it myself.
       filters:
         folders:
           - projects
+      sort_by: 'Date'
+      sort_ascending: false
     design:
       view: article-grid
       fill_image: false
       columns: 3
-      show_date: false
+      show_date: true
       show_read_time: false
-      show_read_more: false
+      show_read_more: true
 ---
