@@ -79,6 +79,17 @@ education:
       
         Electives - Computer Vision IT420, Machine Learning CO327
 work:
+  - position: Teaching Assistant — Reinforcement Learning & Sequential Decision Making
+    company_name: Northeastern University
+    company_url: 'https://www.northeastern.edu/'
+    icon: ''
+    date_start: 2026-01-01
+    date_end: ''
+    summary: |2-
+      TA under Prof. of Practice Yifan Hu. Guided graduate students in implementing and debugging core RL algorithms (DQN, PPO, Policy Gradients), supporting convergence analysis, reward shaping, and training stability in PyTorch-based experiments.
+
+        Conducted recitations and office hours on Markov Decision Processes (MDPs), exploration–exploitation tradeoffs, and actor-critic methods, providing structured feedback on experiment design, reproducibility, and hyperparameter tuning.
+
   - position: Digital Solutions & Technology Engineer
     company_name: Biowolk Healthcare
     company_url: 'https://ai.meta.com/'
