@@ -199,3 +199,5 @@ Right now I'm at **Northeastern University** pursuing an MS in Artificial Intell
 Previously, I spent two years as a full-stack AI engineer at Biowolk Healthcare, shipping Python microservices and ML pipelines. My research has been published in IEEE, and I've interned at Wipro/PARI (stereo vision for robotics) and Tvishtryon (deepfake-powered educational tools).
 
 I care about **diffusion models**, **physical AI**, **reinforcement learning**, and building systems that are honest about what they can and can't do.
+
+> *Knowledge is abundant now because of AI. As humans, more than ever, we need to find and focus our time on problems that really matter — simply because we can, and we owe it to ourselves.*
