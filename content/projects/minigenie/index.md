@@ -8,6 +8,7 @@ tags:
   - World Models
   - PyTorch
 date: 2026-03-07
+featured: true
 image:
   filename: rollout_00.gif
   focal_point: Smart
