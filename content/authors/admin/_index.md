@@ -195,7 +195,7 @@ awards: []
 ---
 I pick hard problems, go deep, and publish the honest result — including when everything fails.
 
-MS AI @ Northeastern (4.0 GPA) · RL Teaching Assistant · IEEE-published. Recent work: [found a novel quality curve in Flow Map LMs](/projects/flow-lm/) the original paper missed, and [proved mathematically why SIGReg cannot prevent representation collapse](/projects/world-model/) — 77 commits, 10 experimental sessions, every approach failed, that was the result. The arc so far: adaptive optics → stereo vision → ML engineering → diffusion models → world models → language → physical AI.
+MS AI @ Northeastern (4.0 GPA) · RL Teaching Assistant · IEEE-published. Recent work: [found a novel quality curve in Flow Map LMs](/projects/flow-lm/) the original paper missed; [proved SIGReg cannot prevent representation collapse](/projects/world-model/) — 77 commits, 10 sessions, every approach failed, that was the result; and [showed uniform masking beats entropy-weighted across all noise schedules](/projects/microdlm/) in a 124M-parameter controlled study. The arc: adaptive optics → stereo vision → ML engineering → diffusion → world models → language → physical AI.
 
 Each project starts the same way: I didn't understand something, so I built it from scratch.
 

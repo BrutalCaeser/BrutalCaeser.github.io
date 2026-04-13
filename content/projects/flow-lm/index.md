@@ -110,19 +110,62 @@ This has no obvious explanation from the paper's theoretical framework, which on
 
 ---
 
-## What's Next: Stage 3
+## Stage 3A: What Does the Trajectory Actually Compute?
 
-Two research directions, both starting from the same working pipeline:
-
-**Direction A — FLM Inversion:** Implementing the reverse-time ODE to enable text editing, style transfer, and semantic interpolation in noise space. At inference, invert a real sentence into its noise representation, then re-decode with a different style or structure. This would be the first DDIM-style inversion applied to continuous flow language models — no discrete diffusion analogue exists.
-
-**Direction B — Trajectory Analysis:** At each ODE step, the denoiser output D_t(x_t) is a probability distribution over the vocabulary at every position. Nobody has studied what these intermediate states encode. Three concrete questions:
-1. **When does each token commit?** Sharp phase transition or gradual sharpening?
-2. **What predicts commitment order?** Predictable tokens first, hard tokens last?
-3. **Do inter-token correlations appear?** Can we see positions "coordinating" predictions mid-trajectory?
-
-If the intermediate trajectory shows structured, coordinated computation — positions influencing each other's evolution — that's direct evidence of a capability discrete diffusion sampling structurally cannot replicate (it discards all inter-token correlations at the final argmax step). All measurements use the denoiser output D_t already computed at every ODE step — no extra forward passes.
+The ODE runs 1024 steps from Gaussian noise to one-hot tokens. At every step, the denoiser outputs a probability distribution over the vocabulary at all 128 positions simultaneously. Nobody had measured what these intermediate states encode — so we did. Five experiments, 256 sequences × 1024 steps.
 
 ---
 
-*Reproduced on Northeastern HPC (H200/A100) · Pre-registered seed-variance experiment · Novel 16-step finding · MIT License*
+### Finding 1: A Sharp Phase Transition, Not a Gradual Curve
+
+Agreement = fraction of positions whose argmax already matches the final output token.
+
+| t    | Agreement | Entropy (nats) |
+|------|-----------|----------------|
+| 0.00 | 0.148     | 6.94           |
+| 0.50 | 0.292     | 6.63           |
+| 0.75 | 0.750     | 2.41           |
+| 0.90 | 1.000     | 1.03           |
+
+The trajectory has two phases:
+
+**Latent phase (t = 0 → 0.65):** The denoiser is highly active — but not committing. Agreement barely moves (0.148 → 0.29). Entropy stays near maximum. 83% of all argmax flips occur here. The model is exploring possibilities, not converging.
+
+**Commitment burst (t ≈ 0.65 → 0.90):** All 128 positions crystallise simultaneously in 25% of the remaining time. Entropy collapses from 6.6 to 1.0 nats. Margin (top-1 confidence) jumps from 0.07 to 0.80. By t ≈ 0.90, every token is locked.
+
+---
+
+### Finding 2: No Sequential Ordering
+
+The joint ODE update treats all positions symmetrically. Spearman correlation between commitment time and sequence position: **ρ = −0.037, p = 0.68** — not significant. Positions don't resolve left-to-right, right-to-left, or in any other order. The commitment burst is a global clock event.
+
+---
+
+### Finding 3: No Cross-Token Coordination (the ODE Doesn't Add It)
+
+Does the joint velocity field create inter-token coordination — adjacent tokens committing together beyond what independence predicts?
+
+| Distance | Ratio (t≈0.80) | Significant? |
+|----------|---------------|--------------|
+| d=1 | 1.011 | Yes |
+| d=2 to d=64 | ~1.000 | No |
+
+The d=1 coordination is real but not ODE-induced: **it peaks at t=0 (ratio = 1.40), before any ODE step has run**, then monotonically decays toward 1.0 during the burst. This is the model's learned bigram prior (adjacent tokens correlate in natural language) visible in D₀(z_noise) before the ODE starts. The ODE does not introduce coordination — it washes it out as individual predictions sharpen.
+
+---
+
+### Why This Explains the 16-Step Sweet Spot
+
+The commitment burst occupies t ∈ [0.65, 0.90]. FLM's τ reparameterisation already concentrates ODE steps in this window. At 16 steps, all compute lands in the burst. More steps extend coverage into the latent phase (t < 0.65) — which has peak flip rate at t = 0.33. More latent-phase steps introduce noise, not quality. **The 16-step sweet spot is mechanistically explained: it's the right budget for the burst, with no wasted steps in the high-noise latent phase.**
+
+---
+
+### What's Next: FLM Inversion
+
+The trajectory analysis opens a concrete next direction. The ODE is deterministic and invertible — given a real or generated sentence, trace back to its initial noise code x₀. This is the continuous-flow analog of DDIM inversion for images.
+
+Applications: **text editing** (invert → perturb trajectory → regenerate), **style transfer** (invert source, apply target guidance, regenerate), **interpolation** (mix two noise codes, decode the midpoint). No one has demonstrated FLM inversion — the paper focuses entirely on generation.
+
+---
+
+*Reproduced on Northeastern HPC (H200/A100) · Pre-registered seed-variance experiment · Novel 16-step finding · Trajectory analysis (5 experiments) · MIT License*

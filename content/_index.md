@@ -34,7 +34,7 @@ sections:
       filters:
         folders:
           - projects
-      count: 0
+      count: 20
       sort_by: 'Date'
       sort_ascending: false
     design:
