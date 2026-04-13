@@ -193,14 +193,10 @@ languages:
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards: []
 ---
-I build things from scratch to understand how they work — then push them further.
+I pick hard problems, go deep, and publish the honest result — including when everything fails.
 
-Right now I'm at **Northeastern University** pursuing an MS in Artificial Intelligence (4.0 GPA), where I also TA for Reinforcement Learning. My current research focuses on **generative modeling and language**: I reproduced [Flow Map Language Models](/projects/flow-lm/) (continuous flows over one-hot tokens) and found a novel non-monotonic step-quality curve not in the original paper — the 16-step student surpasses the 1024-step teacher. Before that, I ran a rigorous investigation into [whether SIGReg distributional regularization can prevent representational collapse](/projects/world-model/) in self-supervised video features — arriving at a mathematical proof that it cannot, across 10 sessions and 77 commits on the Northeastern HPC cluster.
+MS AI @ Northeastern (4.0 GPA) · RL Teaching Assistant · IEEE-published. Recent work: [found a novel quality curve in Flow Map LMs](/projects/flow-lm/) the original paper missed, and [proved mathematically why SIGReg cannot prevent representation collapse](/projects/world-model/) — 77 commits, 10 experimental sessions, every approach failed, that was the result. The arc so far: adaptive optics → stereo vision → ML engineering → diffusion models → world models → language → physical AI.
 
-Earlier work includes a [discrete diffusion scaling study](/projects/microdlm/) (uniform masking beats entropy-weighted — a negative result worth knowing), a [flow matching video world model](/projects/minigenie/) that imagines game frames from actions, and a [lip-to-speech-to-avatar pipeline](/projects/read-my-lips/) for speech-impaired communication.
-
-Previously, I spent two years as a full-stack AI engineer at Biowolk Healthcare, shipping Python microservices and ML pipelines. My research has been published in IEEE, and I've interned at Wipro/PARI (stereo vision for robotics).
-
-I care about **diffusion models and flow matching**, **physical AI**, **reinforcement learning**, and building systems that are honest about what they can and can't do.
+Each project starts the same way: I didn't understand something, so I built it from scratch.
 
 > *Knowledge is abundant now because of AI. As humans, more than ever, we need to find and focus our time on problems that really matter — simply because we can, and we owe it to ourselves.*

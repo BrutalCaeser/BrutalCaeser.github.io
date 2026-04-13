@@ -29,12 +29,12 @@ sections:
   - block: collection
     id: projects
     content:
-      title: Recent Projects
-      text: Things I've built from scratch — models, agents, and tools.
+      title: Projects
+      text: Built from scratch — models, experiments, and tools. Every one taught me something I didn't know to look for.
       filters:
         folders:
           - projects
-      count: 6
+      count: 0
       sort_by: 'Date'
       sort_ascending: false
     design:
