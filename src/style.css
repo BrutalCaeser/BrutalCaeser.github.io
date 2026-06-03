@@ -124,9 +124,9 @@ section { position: relative; z-index: 2; padding: clamp(5rem, 12vh, 11rem) clam
   letter-spacing: -0.02em; margin: 1.4rem 0 clamp(3rem, 7vw, 6rem); max-width: 20ch;
 }
 .statement em { color: var(--accent); }
-.manifesto__cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.5rem, 4vw, 4rem); max-width: 60rem; color: var(--muted); }
-.manifesto__cols p { font-size: 1.05rem; }
-@media (max-width: 720px) { .manifesto__cols { grid-template-columns: 1fr; } }
+.manifesto__cols { max-width: 50ch; color: var(--muted); }
+.manifesto__cols p { font-size: 1.08rem; line-height: 1.65; }
+.manifesto__cols p + p { margin-top: 1.15rem; }
 
 /* manifesto grid: text + portrait */
 .manifesto__grid { display: grid; grid-template-columns: 1fr; }
