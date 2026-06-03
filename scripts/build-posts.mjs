@@ -41,13 +41,26 @@ function fmtDate(d) {
   return isNaN(dt) ? d : dt.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
-const page = ({ title, desc, date, content }) => `<!doctype html>
+const SITE = 'https://brutalcaeser.github.io';
+const page = ({ title, desc, date, content, slug }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>${title} — Yashvardhan Gupta</title>
 <meta name="description" content="${(desc || '').replace(/"/g, '&quot;')}"/>
+<meta name="author" content="Yashvardhan Gupta"/>
+<link rel="canonical" href="${SITE}/writing/${slug}/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Yashvardhan Gupta"/>
+<meta property="og:url" content="${SITE}/writing/${slug}/"/>
+<meta property="og:title" content="${title.replace(/"/g, '&quot;')}"/>
+<meta property="og:description" content="${(desc || '').replace(/"/g, '&quot;')}"/>
+<meta property="og:image" content="${SITE}/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:creator" content="@BrutalCaeser"/>
+<meta name="twitter:image" content="${SITE}/og.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -127,6 +140,7 @@ function build() {
       desc: meta.description || meta.summary || '',
       date: meta.date || '',
       content: html,
+      slug,
     });
     const dir = join(OUT, slug);
     mkdirSync(dir, { recursive: true });

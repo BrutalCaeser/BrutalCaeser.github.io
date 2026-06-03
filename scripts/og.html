@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=JetBrains+Mono:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  body { background:#0b0b0f; font-family:'Inter',sans-serif; position:relative; }
+  #f { position:absolute; inset:0; }
+  .glow { position:absolute; width:900px; height:900px; right:-200px; top:-300px;
+    background:radial-gradient(circle, rgba(139,124,246,0.18), transparent 60%); }
+  .wrap { position:absolute; inset:0; padding:74px 80px; display:flex; flex-direction:column; justify-content:center; }
+  .kick { font-family:'JetBrains Mono',monospace; font-size:21px; letter-spacing:0.22em;
+    text-transform:uppercase; color:#8b7cf6; font-weight:500; }
+  .name { font-family:'Fraunces',serif; font-weight:600; font-size:118px; line-height:0.98;
+    letter-spacing:-0.02em; color:#f3f1ea; margin:22px 0 26px; }
+  .tag { font-family:'Fraunces',serif; font-size:40px; color:#cfcfd6; letter-spacing:-0.01em; }
+  .tag b { color:#8b7cf6; font-weight:400; padding:0 10px; }
+  .foot { position:absolute; left:80px; right:80px; bottom:54px; display:flex;
+    justify-content:space-between; align-items:center;
+    font-family:'JetBrains Mono',monospace; font-size:22px; color:#8b8b96; }
+  .foot .site { color:#f3f1ea; }
+  .rule { position:absolute; left:80px; right:80px; bottom:108px; height:1px; background:rgba(243,241,234,0.12); }
+</style>
+</head>
+<body>
+  <canvas id="f" width="1200" height="630"></canvas>
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="kick">AI Researcher &amp; Engineer</div>
+    <div class="name">Yashvardhan<br/>Gupta</div>
+    <div class="tag">Diffusion<b>·</b>World models<b>·</b>Physical intelligence</div>
+  </div>
+  <div class="rule"></div>
+  <div class="foot">
+    <span class="site">◉ brutalcaeser.github.io</span>
+    <span>MS AI · Northeastern</span>
+  </div>
+  <script>
+    // denoise particle field — concentrated to the right, echoing the hero
+    const c = document.getElementById('f'), x = c.getContext('2d');
+    function draw(){
+      x.clearRect(0,0,1200,630);
+      for(let i=0;i<2200;i++){
+        const px = 560 + Math.random()*680;          // right-biased
+        const py = Math.random()*630;
+        const band = Math.exp(-Math.pow((py-315)/230,2)); // vertical falloff
+        if(Math.random() > band*0.9) continue;
+        const right = (px-560)/680;                   // denser/brighter to the right
+        const a = (0.05 + right*0.5) * (0.4+0.6*band);
+        x.fillStyle = right>0.55 ? `rgba(200,194,243,${a})` : `rgba(232,164,77,${a*0.7})`;
+        const s = 1 + Math.random()*1.6;
+        x.fillRect(px, py, s, s);
+      }
+    }
+    document.fonts.ready.then(draw);
+    draw();
+  </script>
+</body>
+</html>
