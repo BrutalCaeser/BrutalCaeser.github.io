@@ -15,8 +15,26 @@ export const profile = {
 
 // The journey, animated as a trail.
 export const arc = [
-  'adaptive optics', 'stereo vision', 'ML engineering',
-  'diffusion', 'world models', 'language', 'physical AI',
+  'Python', 'DSA', 'Data Science', 'Machine Learning', 'Deep Learning',
+  'CV', 'NLP', 'LLMs', 'Diffusion', 'World Models', 'Physical AI',
+];
+
+// Education — shown in the short-version section.
+export const education = [
+  {
+    degree: 'M.S. Artificial Intelligence',
+    org: 'Northeastern University',
+    loc: 'Silicon Valley',
+    time: '2025 — 2027',
+    note: '4.0 / 4.0 GPA',
+  },
+  {
+    degree: 'B.Tech, Mechanical Engineering',
+    org: 'Delhi Technological University',
+    loc: 'New Delhi',
+    time: '2019 — 2023',
+    note: 'IEEE-published',
+  },
 ];
 
 export const now = [
@@ -32,56 +50,56 @@ export const projects = [
     title: 'Flow Map Language Models',
     year: '2026',
     tags: ['flow matching', 'one-step gen'],
-    blurb: 'Reproduced and extended FMLM — a continuous-flow approach to one-step text generation. Found a novel non-monotonic step-quality curve the original paper never reported.',
+    blurb: 'A new way to generate text in a single step instead of dozens. I reproduced the method and uncovered a quality pattern the original authors had missed.',
     link: 'https://github.com/BrutalCaeser/Flow-Language-Model',
   },
   {
     title: 'SIGReg World Model',
     year: '2026',
-    tags: ['SSL', 'proof', 'collapse'],
-    blurb: 'A rigorous test of whether distributional regularization can stop representational collapse in self-supervised video features — 77 commits, every approach failed, and a mathematical proof of why it can’t. That was the result.',
+    tags: ['self-supervised', 'proof'],
+    blurb: 'Can a popular trick stop AI video models from “collapsing” into useless features? After 77 experiments, the answer was no — and I proved mathematically why.',
     link: 'https://github.com/BrutalCaeser/spatial-jepa-sigreg',
   },
   {
     title: 'MicroDiffusion LM',
     year: '2026',
-    tags: ['discrete diffusion', '124M study'],
-    blurb: 'From-scratch GPT-vs-diffusion on Tiny Shakespeare, then a 124M-parameter scaling study on FineWeb-Edu showing uniform masking beats entropy-weighted across every noise schedule.',
+    tags: ['diffusion', '124M study'],
+    blurb: 'A diffusion-based language model built from scratch, plus a 124M-parameter study showing the simplest training recipe quietly beats the fancier one.',
     link: 'https://github.com/BrutalCaeser/microDLM',
   },
   {
     title: 'MiniGenie',
     year: '2026',
-    tags: ['video', 'flow matching'],
-    blurb: 'A flow-matching video world model that learns to imagine game frames — built entirely from scratch in PyTorch around a 42M-parameter U-Net.',
+    tags: ['video', 'world model'],
+    blurb: 'A small video “world model” that learns to imagine the next frames of a game — built entirely from scratch in PyTorch.',
     link: 'https://github.com/BrutalCaeser/minigenie',
   },
   {
     title: 'Jarvis — macOS AI Agent',
     year: '2026',
-    tags: ['agents', 'A2A', 'safety'],
-    blurb: 'An autonomous agent that orchestrates terminal, browser, and filesystem through LLMs, with a 4-tier safety system and Agent-to-Agent protocol support.',
+    tags: ['agents', 'safety'],
+    blurb: 'A personal AI assistant for macOS that can safely use my terminal, browser, and files to actually get things done — with guardrails at every step.',
     link: 'https://github.com/BrutalCaeser/jarvis-ai',
   },
   {
     title: 'Hunter — Job Application Agent',
     year: '2026',
-    tags: ['browser automation', '24/7'],
-    blurb: 'An LLM-driven browser agent that discovers internship roles, fills applications deterministically, and runs around the clock on macOS.',
+    tags: ['automation', '24/7'],
+    blurb: 'An AI agent that finds internship listings and fills out applications on its own, running around the clock.',
     link: 'https://github.com/BrutalCaeser/Job_Hunter',
   },
   {
     title: 'Read My Lips',
     year: '2025',
     tags: ['multimodal', 'assistive'],
-    blurb: 'A privacy-preserving, end-to-end visual-speech-to-avatar interface — lip-read in real time, projected through a synthesized talking avatar.',
+    blurb: 'A tool that reads lips from video and speaks for you through a lifelike avatar — built for people who can’t speak, with privacy kept on-device.',
     link: 'https://github.com/BrutalCaeser/read_my_lips',
   },
   {
     title: 'AI-Enabled Vehicle Headlamps',
     year: '2023',
-    tags: ['CV', 'embedded', 'B.Tech'],
-    blurb: 'An adaptive LED-matrix system using real-time object detection to light the road while sparing oncoming drivers from glare. Where the build-from-scratch habit started.',
+    tags: ['computer vision', 'B.Tech'],
+    blurb: 'Smart headlights that light up the road but dim automatically to avoid blinding oncoming drivers. My first real build-from-scratch project.',
   },
 ];
 
@@ -107,4 +125,4 @@ export const writing = [
 ];
 
 export const closingQuote =
-  'Knowledge is abundant now because of AI. As humans, more than ever, we need to find and focus our time on problems that really matter — simply because we can, and we owe it to ourselves.';
+  'Knowledge is abundant now because of AI. As humans, now more than ever, we need to find the problems that truly matter — simply because we can, and because we owe it to ourselves, and to the human race, to use AI for the betterment of human civilisation.';

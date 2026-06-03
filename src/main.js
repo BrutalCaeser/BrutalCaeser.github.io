@@ -3,7 +3,7 @@ import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initDiffusion } from './diffusion.js';
-import { profile, arc, now, projects, writing, closingQuote } from './data.js';
+import { profile, arc, education, now, projects, writing, closingQuote } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +16,15 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function render() {
   // hero tagline words
   $('#heroTag').innerHTML = profile.tagline.map((t) => `<span>${t}</span>`).join('');
+
+  // education
+  $('#education').innerHTML = education.map((e) => `
+    <div class="edurow">
+      <div class="edurow__deg">${e.degree}</div>
+      <div class="edurow__org">${e.org} <span class="edurow__loc">· ${e.loc}</span></div>
+      <div class="edurow__time">${e.time}</div>
+      <div class="edurow__note">${e.note}</div>
+    </div>`).join('');
 
   // arc trail
   $('#arc').innerHTML = arc
@@ -253,6 +262,7 @@ function grain() {
 /* ---------------------------------------------------------------
    boot
 --------------------------------------------------------------- */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 render();
 hero();
 smoothScroll();
