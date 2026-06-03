@@ -128,6 +128,28 @@ section { position: relative; z-index: 2; padding: clamp(5rem, 12vh, 11rem) clam
 .manifesto__cols p { font-size: 1.05rem; }
 @media (max-width: 720px) { .manifesto__cols { grid-template-columns: 1fr; } }
 
+/* manifesto grid: text + portrait */
+.manifesto__grid { display: grid; grid-template-columns: 1fr; }
+.manifesto__main { min-width: 0; }
+@media (min-width: 1000px) {
+  .manifesto__grid { grid-template-columns: minmax(0, 1fr) 360px; gap: clamp(2.5rem, 5vw, 6rem); align-items: start; }
+}
+
+/* portrait — desktop only, with a diffusion reveal on the canvas */
+.portrait { display: none; margin: 0; }
+@media (min-width: 1000px) {
+  .portrait { display: block; position: sticky; top: 6.5rem; }
+}
+.portrait__canvas {
+  width: 100%; aspect-ratio: 4 / 5; display: block;
+  background: #0d0d12; border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: 0 30px 80px -40px rgba(0,0,0,0.8);
+}
+.portrait__cap {
+  margin-top: 0.9rem; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.08em; color: var(--faint);
+}
+
 /* education */
 .edu { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
 .edurow {

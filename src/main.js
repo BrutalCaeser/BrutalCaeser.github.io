@@ -3,6 +3,7 @@ import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initDiffusion } from './diffusion.js';
+import { initPortrait } from './portrait.js';
 import { profile, arc, education, now, projects, writing, closingQuote } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -265,6 +266,7 @@ function grain() {
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 render();
 hero();
+initPortrait(document.getElementById('portrait'), { src: '/portrait.webp', focusX: 0.27, focusY: 0.64, zoom: 2.0 });
 smoothScroll();
 reveals();
 workInteractions();
