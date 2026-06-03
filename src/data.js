@@ -47,6 +47,20 @@ export const now = [
 // Selected work. `link` omitted = no outbound link (shows as a read-only entry).
 export const projects = [
   {
+    title: 'Block-Size Pareto Frontier',
+    year: '2026',
+    tags: ['block diffusion', 'throughput'],
+    blurb: 'Why does a leading diffusion language model run at “block size 32”? I mapped the full speed-vs-quality trade-off and found generation throughput peaks exactly at 32 — reproducing, on the real code path, a sweet spot that was never published.',
+    link: 'https://github.com/BrutalCaeser/block-diffusion-pareto',
+  },
+  {
+    title: 'Phantom Gradients',
+    year: '2026',
+    tags: ['self-supervised', 'representation collapse'],
+    blurb: 'When a model’s useful features live in far fewer dimensions than it has room for, training fights noise in the empty ones. I built a testbed showing a simple coherence-guided trick recovers the real structure — without being told how many dimensions to look for — beating even a method that is.',
+    link: 'https://github.com/BrutalCaeser/phantom-gradients',
+  },
+  {
     title: 'Flow Map Language Models',
     year: '2026',
     tags: ['flow matching', 'one-step gen'],
