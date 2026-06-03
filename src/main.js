@@ -263,11 +263,76 @@ function grain() {
 /* ---------------------------------------------------------------
    boot
 --------------------------------------------------------------- */
+/* ---------------------------------------------------------------
+   9. Wayfinding — scroll progress, active section, mobile menu
+--------------------------------------------------------------- */
+function navigation(lenis) {
+  const progress = $('#progress');
+  const burger = $('#burger');
+  const menu = $('#mobileMenu');
+  const navLinks = Array.from(document.querySelectorAll('.nav__links a'));
+
+  // scroll progress bar
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    if (progress) progress.style.transform = `scaleX(${p})`;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  if (lenis) lenis.on('scroll', onScroll);
+  onScroll();
+
+  // highlight the section currently in view
+  const map = {};
+  navLinks.forEach((a) => { map[a.getAttribute('href').slice(1)] = a; });
+  const sections = Object.keys(map).map((id) => document.getElementById(id)).filter(Boolean);
+  if (sections.length && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          navLinks.forEach((a) => a.classList.remove('active'));
+          map[e.target.id]?.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach((s) => io.observe(s));
+  }
+
+  // mobile menu
+  if (burger && menu) {
+    const setMenu = (open) => {
+      menu.classList.toggle('open', open);
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (lenis) (open ? lenis.stop() : lenis.start());
+    };
+    burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        setMenu(false);
+        if (id && id.startsWith('#')) {
+          e.preventDefault();
+          if (lenis) lenis.scrollTo(id); else document.querySelector(id)?.scrollIntoView();
+        }
+      });
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  }
+}
+
+/* ---------------------------------------------------------------
+   boot
+--------------------------------------------------------------- */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 render();
 hero();
 initPortrait(document.getElementById('portrait'), { src: '/portrait.webp', focusX: 0.27, focusY: 0.64, zoom: 2.0 });
-smoothScroll();
+const lenis = smoothScroll();
+navigation(lenis);
 reveals();
 workInteractions();
 cursor();
