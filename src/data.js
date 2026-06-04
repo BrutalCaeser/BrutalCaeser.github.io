@@ -47,6 +47,13 @@ export const now = [
 // Selected work. `link` omitted = no outbound link (shows as a read-only entry).
 export const projects = [
   {
+    title: 'Reinforced Diffusion LLMs',
+    year: '2026',
+    tags: ['reinforcement learning', 'diffu-GRPO'],
+    blurb: 'Teaching a diffusion language model to reason with reinforcement learning, using the same diffu-GRPO recipe a leading lab runs. A faithful reproduction needs roughly 24 GPU-days, so I rebuilt the mechanism to run on a single GPU, reproduced the baseline cleanly, and am now chasing a real gain.',
+    link: 'https://github.com/BrutalCaeser/reinforcing_dLLMs',
+  },
+  {
     title: 'Block-Size Pareto Frontier',
     year: '2026',
     tags: ['block diffusion', 'throughput'],
