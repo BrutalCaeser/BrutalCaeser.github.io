@@ -4,7 +4,7 @@
 export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
   const ctx = canvas.getContext('2d', { alpha: true });
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let W, H, dpr, lastW = 0, particles = [], targets = [], pointer = { x: -9999, y: -9999 };
+  let W, H, dpr, lastW = 0, gap = 3, particles = [], targets = [], pointer = { x: -9999, y: -9999 };
 
   const ACCENT = [149, 134, 255];   // violet (a touch brighter for legibility)
   const ACCENT2 = [232, 164, 77];   // amber
@@ -35,9 +35,9 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
 
     const img = o.getImageData(0, 0, W, H).data;
     const pts = [];
-    // Sampling step: dense enough for crisp edges, sparse enough that the
-    // glyphs read as particles forming letters — not a solid slab.
-    const gap = Math.max(2, Math.round(W / 420));
+    // Sampling step scales with the FONT SIZE (not screen width) so letter
+    // detail stays consistent on every display — small phones to wide monitors.
+    gap = Math.max(2, Math.min(4, Math.round(size / 42)));
     for (let y = 0; y < H; y += gap) {
       for (let x = 0; x < W; x += gap) {
         if (img[(y * W + x) * 4 + 3] > 90) {
@@ -70,7 +70,7 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
       particles[i] = {
         x: Math.random() * W, y: Math.random() * H,
         tx: t.x, ty: t.y, vx: 0, vy: 0,
-        s: Math.random() * 1.1 + 0.7,
+        k: Math.random() * 0.3 + 0.78,   // per-particle fill factor (× gap)
         ph: Math.random() * Math.PI * 2,
       };
     }
@@ -116,8 +116,9 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
         Math.round(lerp(c[2], 234, coherence * 0.55)),
       ];
       ctx.fillStyle = `rgba(${cc[0]},${cc[1]},${cc[2]},${a})`;
-      // crisper, fuller dots when resolved; pixel-snapped to avoid sub-pixel fuzz
-      const r = p.s * (0.95 + coherence * 0.85);
+      // Dots grow with the sampling gap so the glyphs read SOLID when resolved
+      // (≈ fill the grid cell), and shrink to an airy field when dispersed.
+      const r = gap * p.k * (0.5 + coherence * 0.55);
       ctx.fillRect(Math.round(p.x), Math.round(p.y), r, r);
     }
     raf = requestAnimationFrame(step);
