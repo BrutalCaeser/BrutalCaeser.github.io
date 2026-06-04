@@ -23,11 +23,11 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
     // Fit the longest line to ~78% of width, but cap by height too.
     const longest = lines.reduce((a, b) => (a.length > b.length ? a : b));
     let size = 220;
-    o.font = `600 ${size}px Fraunces, Georgia, serif`;
-    const target = W * (W < 640 ? 0.86 : 0.74);
+    o.font = `700 ${size}px Fraunces, Georgia, serif`;
+    const target = W * (W < 640 ? 0.85 : 0.74);
     size = size * (target / o.measureText(longest).width);
     size = Math.min(size, H / (lines.length + 1.4));
-    o.font = `600 ${size}px Fraunces, Georgia, serif`;
+    o.font = `700 ${size}px Fraunces, Georgia, serif`;
 
     const lh = size * 0.96;
     const cy = H / 2 - ((lines.length - 1) * lh) / 2;
@@ -49,7 +49,7 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
   }
 
   function measure() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, 3);
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = W * dpr; canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -78,7 +78,7 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
 
   // Phase machine: converge -> hold -> disperse -> scatter -> repeat
   let phase = 'converge', phaseStart = performance.now(), coherence = 0;
-  const DUR = { converge: 3000, hold: 5200, disperse: 2200, scatter: 1400 };
+  const DUR = { converge: 3000, hold: 7000, disperse: 2200, scatter: 1400 };
   const ease = (t) => 1 - Math.pow(1 - t, 3);
   const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -116,8 +116,9 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
         Math.round(lerp(c[2], 234, coherence * 0.55)),
       ];
       ctx.fillStyle = `rgba(${cc[0]},${cc[1]},${cc[2]},${a})`;
-      const r = p.s * (0.85 + coherence * 0.55);
-      ctx.fillRect(p.x, p.y, r, r);
+      // crisper, fuller dots when resolved; pixel-snapped to avoid sub-pixel fuzz
+      const r = p.s * (0.95 + coherence * 0.85);
+      ctx.fillRect(Math.round(p.x), Math.round(p.y), r, r);
     }
     raf = requestAnimationFrame(step);
   }
@@ -155,7 +156,10 @@ export function initDiffusion(canvas, { name = 'YASHVARDHAN\nGUPTA' } = {}) {
   // (the cause of the "missing edges / unclear" letters).
   measure();
   const ready = (document.fonts && document.fonts.load)
-    ? document.fonts.load('600 200px Fraunces').catch(() => {})
+    ? Promise.all([
+        document.fonts.load('700 200px Fraunces'),
+        document.fonts.load('600 200px Fraunces'),
+      ]).catch(() => {})
     : Promise.resolve();
   ready.then(() => { rebuild(); start(); });
 
