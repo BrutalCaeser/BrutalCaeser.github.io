@@ -50,7 +50,7 @@ export const projects = [
     title: 'Reinforced Diffusion LLMs',
     year: '2026',
     tags: ['reinforcement learning', 'diffu-GRPO'],
-    blurb: 'Teaching a diffusion language model to reason with reinforcement learning, using the same diffu-GRPO recipe a leading lab runs. A faithful reproduction needs roughly 24 GPU-days, so I rebuilt the mechanism to run on a single GPU, reproduced the baseline cleanly, and am now chasing a real gain.',
+    blurb: 'A single-GPU study of diffu-GRPO, the reinforcement-learning recipe behind reasoning in diffusion LLMs. The catch is that these models can’t compute their own sequence probability like a normal LLM, so I validated the cheap estimator that makes RL possible, then showed it lifts held-out reasoning by a modest ~4 points, where a faithful run would cost 24 GPU-days.',
     link: 'https://github.com/BrutalCaeser/reinforcing_dLLMs',
   },
   {
