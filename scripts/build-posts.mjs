@@ -37,7 +37,9 @@ const restoreMath = (html, store) => html.replace(/@@MATH(\d+)@@/g, (_, i) => st
 
 function fmtDate(d) {
   if (!d) return '';
-  const dt = new Date(d);
+  // Parse YYYY-MM-DD as a LOCAL date (avoid UTC-midnight off-by-one in PST).
+  const m = String(d).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  const dt = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date(d);
   return isNaN(dt) ? d : dt.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
@@ -126,7 +128,7 @@ window.addEventListener('load',function(){
 </html>`;
 
 function build() {
-  const files = readdirSync(SRC).filter((f) => f.endsWith('.md'));
+  const files = readdirSync(SRC).filter((f) => f.endsWith('.md') && !f.startsWith('.'));
   marked.setOptions({ gfm: true, breaks: false });
   for (const f of files) {
     const slug = f.replace(/\.md$/, '');

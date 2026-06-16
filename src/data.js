@@ -126,8 +126,7 @@ export const projects = [
 
 export const writing = [
   {
-    url: 'https://yashvardhangupta.substack.com/p/teaching-a-diffusion-language-model',
-    external: 'Substack',
+    slug: 'teaching-a-diffusion-language-model',
     title: 'Teaching a Diffusion Language Model to Reason with RL',
     sub: 'diffu-GRPO from scratch on one GPU, and the trick that makes it train',
     date: 'Jun 2026',
