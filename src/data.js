@@ -44,6 +44,14 @@ export const now = [
   { k: 'Away from the desk', v: 'Tennis, chess, and arguing with books.' },
 ];
 
+// Toolkit — grouped by layer, research first. (No skill bars; tools are means, not scores.)
+export const skills = [
+  { group: 'Research & methods', items: ['Diffusion models', 'Flow matching', 'Discrete diffusion', 'World models', 'Reinforcement learning', 'Self-supervised learning'] },
+  { group: 'ML engineering', items: ['PyTorch', 'JAX / Flax', 'Hugging Face', 'CUDA', 'ONNX', 'multi-GPU / SLURM'] },
+  { group: 'Systems & deployment', items: ['Docker', 'FastAPI', 'CI/CD', 'AWS', 'GCP', 'Linux'] },
+  { group: 'Languages', items: ['Python', 'SQL', 'Bash', 'Java'] },
+];
+
 // Selected work. `link` omitted = no outbound link (shows as a read-only entry).
 export const projects = [
   {

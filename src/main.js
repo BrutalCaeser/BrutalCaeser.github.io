@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initDiffusion } from './diffusion.js';
 import { initPortrait } from './portrait.js';
-import { profile, arc, education, now, projects, writing, closingQuote } from './data.js';
+import { profile, arc, education, now, skills, projects, writing, closingQuote } from './data.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,6 +74,13 @@ function render() {
       <div class="writeitem__d">${w.date} ↗</div>
     </a>`;
   }).join('');
+
+  // toolkit
+  $('#skilllist').innerHTML = skills.map((s) => `
+    <li class="skillrow">
+      <span class="skillrow__k">${s.group}</span>
+      <div class="skillrow__v">${s.items.map((i) => `<span class="tag">${i}</span>`).join('')}</div>
+    </li>`).join('');
 
   // now list
   $('#nowlist').innerHTML = now.map((n) => `
@@ -167,7 +174,7 @@ function reveals() {
   });
 
   // work + writing items rise
-  ['.workitem', '.writeitem', '.nowitem'].forEach((sel) => {
+  ['.workitem', '.skillrow', '.writeitem', '.nowitem'].forEach((sel) => {
     gsap.utils.toArray(sel).forEach((el, i) => {
       gsap.from(el, {
         y: 50, opacity: 0, duration: 0.9, ease: 'power3.out', delay: (i % 4) * 0.05,

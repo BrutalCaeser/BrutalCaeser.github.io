@@ -227,6 +227,16 @@ section { position: relative; z-index: 2; padding: clamp(5rem, 12vh, 11rem) clam
 .writeitem__d { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--faint); white-space: nowrap; }
 @media (max-width: 620px) { .writeitem { flex-direction: column; gap: 0.6rem; } }
 
+/* ---- toolkit / skills ------------------------------------ */
+.skills { max-width: var(--maxw); margin: 0 auto; }
+.skilllist { list-style: none; border-top: 1px solid var(--line); }
+.skillrow { display: grid; grid-template-columns: 14rem 1fr; gap: 1.5rem; align-items: start; padding: 1.6rem 0; border-bottom: 1px solid var(--line); }
+.skillrow__k { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--accent); letter-spacing: 0.03em; padding-top: 0.35rem; }
+.skillrow__v { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.skillrow .tag { font-size: 0.82rem; padding: 0.45em 0.95em; color: var(--ink); transition: border-color .3s var(--ease), color .3s var(--ease); }
+.skillrow .tag:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 620px) { .skillrow { grid-template-columns: 1fr; gap: 0.8rem; } }
+
 /* ---- now -------------------------------------------------- */
 .now { max-width: var(--maxw); margin: 0 auto; }
 .now__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 2.5rem; }
