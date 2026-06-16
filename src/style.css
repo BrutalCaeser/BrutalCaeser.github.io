@@ -222,6 +222,7 @@ section { position: relative; z-index: 2; padding: clamp(5rem, 12vh, 11rem) clam
 .writeitem { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; padding: clamp(1.2rem, 3vw, 2rem) clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: 14px; transition: border-color .35s var(--ease), background .35s var(--ease), transform .35s var(--ease); }
 .writeitem:hover { border-color: var(--accent); background: var(--bg-2); transform: translateY(-3px); }
 .writeitem__t { font-family: 'Fraunces', serif; font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 400; letter-spacing: -0.015em; }
+.writeitem__src { display: inline-block; vertical-align: middle; margin-left: 0.6rem; transform: translateY(-2px); font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 0.25em 0.6em; }
 .writeitem__s { color: var(--muted); font-size: 0.95rem; margin-top: 0.3rem; }
 .writeitem__d { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--faint); white-space: nowrap; }
 @media (max-width: 620px) { .writeitem { flex-direction: column; gap: 0.6rem; } }

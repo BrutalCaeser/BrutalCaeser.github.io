@@ -60,15 +60,20 @@ function render() {
     </li>`;
   }).join('');
 
-  // writing list
-  $('#writinglist').innerHTML = writing.map((w) => `
-    <a class="writeitem" href="/writing/${w.slug}/">
+  // writing list (internal rendered posts + external links e.g. Substack)
+  $('#writinglist').innerHTML = writing.map((w) => {
+    const href = w.url || `/writing/${w.slug}/`;
+    const ext = w.url ? ' target="_blank" rel="noopener"' : '';
+    const tag = w.external ? `<span class="writeitem__src">${w.external}</span>` : '';
+    return `
+    <a class="writeitem" href="${href}"${ext}>
       <div>
-        <div class="writeitem__t">${w.title}</div>
+        <div class="writeitem__t">${w.title}${tag}</div>
         <div class="writeitem__s">${w.sub}</div>
       </div>
       <div class="writeitem__d">${w.date} ↗</div>
-    </a>`).join('');
+    </a>`;
+  }).join('');
 
   // now list
   $('#nowlist').innerHTML = now.map((n) => `
