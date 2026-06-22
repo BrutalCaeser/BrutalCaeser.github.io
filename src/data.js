@@ -120,13 +120,6 @@ export const projects = [
     blurb: 'An enterprise three-way-match system: ingest purchase orders, receipts, and invoices into a Neo4j knowledge graph, then let an agentic-RAG layer answer multi-hop questions and surface the financial discrepancies. The arithmetic is deterministic Python; the model only routes and explains.',
   },
   {
-    title: 'Jarvis — macOS AI Agent',
-    year: '2026',
-    tags: ['agents', 'safety'],
-    blurb: 'A personal AI assistant for macOS that can safely use my terminal, browser, and files to actually get things done — with guardrails at every step.',
-    link: 'https://github.com/BrutalCaeser/jarvis-ai',
-  },
-  {
     title: 'Hunter — Job Application Agent',
     year: '2026',
     tags: ['automation', '24/7'],
