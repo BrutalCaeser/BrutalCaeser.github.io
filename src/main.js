@@ -39,7 +39,12 @@ function render() {
     const isLink = !!p.link;
     const tag = isLink ? 'a' : 'div';
     const href = isLink ? ` href="${p.link}" target="_blank" rel="noopener"` : '';
-    return `<li class="workitem" data-i="${i}">
+    const preview = p.image ? `
+            <a class="workitem__preview" href="${p.link || '#'}"${isLink ? ' target="_blank" rel="noopener"' : ''}>
+              <img src="${p.image}" alt="${p.imageAlt || p.title}" loading="lazy"/>
+              ${p.imageLabel ? `<span class="workitem__previewcap">${p.imageLabel} ↗</span>` : ''}
+            </a>` : '';
+    return `<li class="workitem${p.image ? ' workitem--media' : ''}" data-i="${i}">
       <${tag}${href} class="workitem__row" data-row>
         <span class="workitem__idx">${idx}</span>
         <span class="workitem__title">${p.title}</span>
@@ -53,7 +58,7 @@ function render() {
           <span></span>
           <div>
             <p class="workitem__blurb">${p.blurb}</p>
-            <div class="workitem__tags">${tags}</div>
+            <div class="workitem__tags">${tags}</div>${preview}
           </div>
         </div>
       </div>

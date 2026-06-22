@@ -104,6 +104,22 @@ export const projects = [
     link: 'https://github.com/BrutalCaeser/minigenie',
   },
   {
+    title: 'Once Upon Earth',
+    year: '2026',
+    tags: ['full-stack', 'live product'],
+    blurb: 'A 3D globe of the world’s history: spin it, tap a country, and read a source-grounded story. Stories are either hand-curated or generated on demand from real Wikipedia sources, with a gate that refuses to make things up. Shipped and live.',
+    link: 'https://onceuponearth.co',
+    image: '/img/oue-landing.webp',
+    imageAlt: 'Once Upon Earth landing page — a night-lit globe under the title',
+    imageLabel: 'onceuponearth.co',
+  },
+  {
+    title: 'OpsGraph',
+    year: '2026',
+    tags: ['agentic-RAG', 'knowledge graph'],
+    blurb: 'An enterprise three-way-match system: ingest purchase orders, receipts, and invoices into a Neo4j knowledge graph, then let an agentic-RAG layer answer multi-hop questions and surface the financial discrepancies. The arithmetic is deterministic Python; the model only routes and explains.',
+  },
+  {
     title: 'Jarvis — macOS AI Agent',
     year: '2026',
     tags: ['agents', 'safety'],
