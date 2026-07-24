@@ -38,7 +38,7 @@ export const education = [
 ];
 
 export const now = [
-  { k: 'Building', v: 'Deterministic agentic AI on Claude + MCP — AI/GenAI co-op at NovasIQ.' },
+  { k: 'Building', v: 'Φ (Physical Hardware Intelligence), Northeastern’s first robotics club: SO-ARM101 and robots that learn.' },
   { k: 'Researching', v: 'Flow-map language model inversion & the block-size Pareto frontier.' },
   { k: 'Reading', v: 'To Kill a Mockingbird — then Russell’s The Problems of Philosophy.' },
   { k: 'Away from the desk', v: 'Tennis, chess, and arguing with books.' },
@@ -54,6 +54,16 @@ export const skills = [
 
 // Selected work. `link` omitted = no outbound link (shows as a read-only entry).
 export const projects = [
+  {
+    title: 'Φ — Physical Hardware Intelligence',
+    year: '2026',
+    tags: ['robotics', 'co-founder'],
+    blurb: 'Northeastern Silicon Valley’s first student robotics club, which I co-founded. We build robots that learn on the open SO-ARM101 arm: teleoperate, record, train, evaluate, deploy. I also designed and built the club’s site, where the robot arm reaches for your cursor.',
+    link: 'https://physical-hardware-intelligence.github.io/',
+    image: '/img/phi-landing.webp',
+    imageAlt: 'Physical Hardware Intelligence club site — “We build robots that learn”',
+    imageLabel: 'the Φ club site',
+  },
   {
     title: 'Reinforced Diffusion LLMs',
     year: '2026',
