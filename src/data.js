@@ -153,6 +153,20 @@ export const projects = [
 
 export const writing = [
   {
+    url: 'https://physical-hardware-intelligence.github.io/blog/a-vla-is-not-the-policy.html',
+    external: 'Φ blog',
+    title: 'A VLA is not the policy',
+    sub: 'Action chunking made behaviour cloning work, and it leaves the policy blind for two seconds at a time',
+    date: 'Sep 2026',
+  },
+  {
+    url: 'https://physical-hardware-intelligence.github.io/blog/everything-is-an-encoder-and-a-decoder.html',
+    external: 'Φ blog',
+    title: 'Diffusion Policy, Transformer explained',
+    sub: 'The transformer variant, taken apart one shape at a time on our own arm',
+    date: 'Jul 2026',
+  },
+  {
     slug: 'teaching-a-diffusion-language-model',
     title: 'Teaching a Diffusion Language Model to Reason with RL',
     sub: 'diffu-GRPO from scratch on one GPU, and the trick that makes it train',
